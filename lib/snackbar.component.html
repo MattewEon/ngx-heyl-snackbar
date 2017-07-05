@@ -1,0 +1,5 @@
+<div class="snackbar-header">
+	<h3>{{ cfg.title }}</h3>
+	<button class="close" (click)="hide()" *ngIf="cfg.closeButton">&times;</button>
+</div>
+<p #snackbarBody>{{ text }}</p>

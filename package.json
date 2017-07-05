@@ -1,0 +1,30 @@
+{
+  "name": "ngx-heyl-snackbar",
+  "version": "1.0.0",
+  "description": "A simple Angular2+ snackbar",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "GALLO Mathieu",
+  "license": "ISC",
+  "dependencies": {
+    "@angular/common": "^2.4.3",
+    "@angular/core": "^2.0.0",
+    "rxjs": "^5.4.1",
+    "zone.js": "^0.8.12"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MattewEon/ngx-heyl-snackbar.git"
+  },
+  "keywords": [
+    "angular",
+    "snackbar"
+  ],
+  "bugs": {
+    "url": "https://github.com/MattewEon/ngx-heyl-snackbar/issues"
+  },
+  "homepage": "https://github.com/MattewEon/ngx-heyl-snackbar#readme"
+}

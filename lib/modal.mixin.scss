@@ -1,0 +1,15 @@
+@mixin snackbarColor($header_background, $background, $text_color, $max-height: "150px") {
+	:root snackbar {
+		color: $text_color;
+		background: $background;
+		max-height: unquote($max-height);
+
+		> div.snackbar-header {
+
+			> h3 {
+				background: $header_background;
+			}
+		}
+
+	}
+}
