@@ -1,6 +1,6 @@
 {
   "name": "ngx-heyl-snackbar",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A simple Angular2+ snackbar",
   "main": "index.ts",
   "scripts": {
