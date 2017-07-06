@@ -12,7 +12,7 @@ snackbar {
 	overflow: hidden;
 	color: white;
 	transform: translateY(100%);
-	max-height: 120px;
+	max-height: 150px;
 	box-shadow: initial;
 
 
@@ -52,5 +52,10 @@ snackbar {
 		overflow: auto;
 		margin: 0;
 		padding: 12px 8px 4px 8px;
+		white-space: pre;
+
+		&:empty {
+			display: none;
+		}
 	}
 }

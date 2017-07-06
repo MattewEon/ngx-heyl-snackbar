@@ -1,4 +1,3 @@
 .idea
 *.iml
-#*.ts
-dist
+npm-debug.log.*
