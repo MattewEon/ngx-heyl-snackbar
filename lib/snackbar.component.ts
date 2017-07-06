@@ -37,7 +37,7 @@ export class SnackbarComponent implements OnDestroy {
 
 		// Update snackbar configuration
 		this.snackbarService.$configSnackbar.takeWhile(() => this.alive).subscribe(config => {
-			this.cfg.apply(config);
+			this.cfg = config;
 		});
 
 		// Show the snackbar element
@@ -95,6 +95,10 @@ export class SnackbarComponent implements OnDestroy {
 	// Show the snackbar
 	public show(): void {
 		this.visible = true;
+		if (this.cfg.autoClose) {
+			if (this.timeout) clearTimeout(this.timeout);
+			this.timeout = setTimeout(() => this.hide(), this.cfg.closeTimeout);
+		}
 	}
 
 	// Hide the snackbar and call the callback

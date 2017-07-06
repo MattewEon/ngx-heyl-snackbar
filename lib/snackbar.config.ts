@@ -9,12 +9,6 @@ export class SnackbarConfig {
 	constructor() {
 	}
 
-	apply(config: SnackbarConfig) {
-		for(let attribute in config) {
-			if (typeof config[attribute] != "function") this[attribute] = config[attribute];
-		}
-	}
-
 	setTitle(title: string): SnackbarConfig {
 		this.title = title;
 		return this;

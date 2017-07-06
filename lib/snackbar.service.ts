@@ -30,8 +30,9 @@ export class SnackbarService {
 		if (snackbarContent) {
 			if (snackbarContent.constructor.name == "Function") this.setSnackbarComponent(<Function> snackbarContent);
 			if (snackbarContent.constructor.name == "String") this.setSnackbarText(<string>snackbarContent);
+		} else {
+			this.showSnackbar.next();
 		}
-		this.showSnackbar.next();
 	}
 	
 	public setSnackbarComponent(snackbarBodyComponent: Function): void {
