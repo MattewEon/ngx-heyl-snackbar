@@ -35,8 +35,7 @@ This package is designed to define the snackbar only on the `app.component` temp
     a sharedService used all along your app :
    
    ```typescript
-   import {SnackbarService} from "ngx-heyl-snackbar/lib/snackbar.service";
-   import {SnackbarConfig, SnackbarFade} from "ngx-heyl-snackbar/lib/snackbar.config";
+   import {SnackbarService, SnackbarConfig, SnackbarFade} from "ngx-heyl-snackbar";
 
    export var snackbarOneConfig: SnackbarConfig =  new SnackbarConfig().setFade(SnackbarFade.RIGHT).setSize("70%").setTitle("Snackbar One");
    export var snackbarTwoConfig: SnackbarConfig =  new SnackbarConfig().setFade(SnackbarFade.LEFT).setSize("50%").setTitle("Snackbar Two");

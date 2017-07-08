@@ -3,6 +3,9 @@ import {CommonModule} from "@angular/common";
 import {SnackbarComponent} from "./lib/snackbar.component";
 import {SnackbarService} from "./lib/snackbar.service";
 
+export * from "./lib/snackbar.service";
+export * from "./lib/snackbar.config";
+
 
 @NgModule({
 	imports: [

@@ -1,10 +1,16 @@
+export enum SnackbarFade {
+	BOTTOM = <any>"bottom",
+	TOP = <any>"top",
+}
+
 export class SnackbarConfig {
 	title: string = "Snackbar title";
 
 	autoClose: boolean = true;
-	closeTimeout: number = 5000;
+	closeTimeout: number = 8000;
 	closeButton: boolean = true;
 	deleteOnClose: boolean = false;
+	fade: SnackbarFade = SnackbarFade.BOTTOM;
 
 	constructor() {
 	}
@@ -28,6 +34,10 @@ export class SnackbarConfig {
 	}
 	setDeleteOnClose(deleteOnClose: boolean): SnackbarConfig {
 		this.deleteOnClose = deleteOnClose;
+		return this;
+	}
+	setFade(fade: SnackbarFade): SnackbarConfig {
+		this.fade = fade;
 		return this;
 	}
 }

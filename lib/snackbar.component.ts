@@ -3,14 +3,13 @@ import {
 	ComponentFactoryResolver,
 	ComponentRef,
 	HostBinding,
-	HostListener,
 	OnDestroy,
 	ViewChild,
 	ViewContainerRef,
 	ViewEncapsulation
 } from "@angular/core";
 import {SnackbarService} from "./snackbar.service";
-import {SnackbarConfig} from "./snackbar.config";
+import {SnackbarConfig, SnackbarFade} from "./snackbar.config";
 import "rxjs/add/operator/takeWhile";
 
 @Component({
@@ -21,7 +20,10 @@ import "rxjs/add/operator/takeWhile";
 })
 export class SnackbarComponent implements OnDestroy {
 	@HostBinding('class.showed') visible: boolean = false;  // True when visible
+	@HostBinding('class.bottom') isBottom: boolean = true;
+	@HostBinding('class.top') isTop: boolean = false;
 	alive: boolean = false;
+	private waitForShow: boolean = false;
 
 	public cfg: SnackbarConfig = new SnackbarConfig();      // Snackbar configuration
 	private timeout = undefined;                            // Snackbar hide timeout
@@ -37,6 +39,15 @@ export class SnackbarComponent implements OnDestroy {
 
 		// Update snackbar configuration
 		this.snackbarService.$configSnackbar.takeWhile(() => this.alive).subscribe(config => {
+			if (this.cfg.fade != config.fade) {
+				this.isBottom = false;
+				this.isTop = false;
+				if (config.fade == SnackbarFade.BOTTOM) this.isBottom = true;
+				else if (config.fade == SnackbarFade.TOP) this.isTop = true;
+				this.waitForShow = true;
+				setTimeout(() => this.waitForShow = false, 500);
+			}
+
 			this.cfg = config;
 		});
 
@@ -94,6 +105,11 @@ export class SnackbarComponent implements OnDestroy {
 
 	// Show the snackbar
 	public show(): void {
+		if (this.waitForShow) {
+			setTimeout(() => this.show(), 500);
+			return;
+		}
+
 		this.visible = true;
 		if (this.cfg.autoClose) {
 			if (this.timeout) clearTimeout(this.timeout);

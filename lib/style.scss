@@ -6,19 +6,18 @@ snackbar {
 	z-index: 101;
 	left: 15%;
 	right: 15%;
-	bottom: 0;
 	background: rgba(43, 49, 53, 0.9);
-	border-radius: 3px 3px 0 0;
 	overflow: hidden;
 	color: white;
-	transform: translateY(100%);
 	max-height: 150px;
 	box-shadow: initial;
+	opacity: 0;
 
 
-	&.showed {
+	:root &.showed {
 		transform: translateY(0);
 		box-shadow: 0 -1px 16px -3px #000;
+		opacity: 1;
 	}
 
 	> div.snackbar-header {
@@ -57,5 +56,17 @@ snackbar {
 		&:empty {
 			display: none;
 		}
+	}
+
+	&.bottom {
+		border-radius: 3px 3px 0 0;
+		transform: translateY(100%);
+		bottom: 0;
+	}
+
+	&.top {
+		border-radius: 0 0 3px 3px;
+		transform: translateY(-100%);
+		top: 0;
 	}
 }
