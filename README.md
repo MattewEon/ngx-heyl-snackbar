@@ -7,7 +7,7 @@ This package is designed to define the snackbar only on the `app.component` temp
 
 1. Install npm module : 
 
-   `npm install ngx-heyl-module`
+   `npm install --save ngx-heyl-snackbar
 
 2. Import the module :
 
